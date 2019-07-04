@@ -2,3 +2,4 @@
 virtualenv
 *.log
 *.retry
+roles/geerlingguy.j*

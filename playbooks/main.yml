@@ -3,5 +3,5 @@
   become: yes
 
   roles:
-  - geerlinguy.java
+  - geerlingguy.java
   - geerlingguy.jenkins

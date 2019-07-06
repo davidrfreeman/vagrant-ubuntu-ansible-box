@@ -1,0 +1,35 @@
+- name: "update apt packages"
+  apt:
+    update_cache: yes
+    upgrade: dist
+
+- name: "Install openjdk-8"
+  apt:
+    name: openjdk-8-jdk
+    force_apt_get: yes
+
+- name: "Add Jenkins gpg-key"
+  apt_key:
+    url: https://pkg.jenkins.io/debian/jenkins.io.key
+    state: present
+
+- name: "Edit sources.list file"
+  lineinfile:
+    path: /etc/apt/sources.list
+    regexp: '^deb https://pkg.jenkins'
+    line: deb https://pkg.jenkins.io/debian-stable binary/
+
+- name: "Update apt cache"
+  apt:
+    update_cache: yes
+
+- name: "Install Jenkins"
+  apt:
+    name: jenkins
+    state: present
+
+- name: "Start Jenkins"
+  service:
+    name: jenkins
+    state: started
+    enabled: yes

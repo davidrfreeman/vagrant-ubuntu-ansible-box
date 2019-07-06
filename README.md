@@ -8,4 +8,4 @@
 - Virtualbox
 - Ansible
 
-Clone the repo and run `vagrant up`. Jenkins instance will be available at http://locahost:8080. At the moment, to get the initial Jenkins login password copy the output of `vagrant ssh -c 'sudo cat /var/lib/jenkins/secrets/initialAdminPassword'`
+Clone the repo and run `vagrant up`. Visit http://localhost:8080 to log in to Jenkins with username and password: admin, admin.

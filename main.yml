@@ -1,23 +1,20 @@
 ---
 - hosts: all 
   become: yes
-  #pre_tasks:
-  #  - name: update packages
-  #    apt:
-  #      update_cache: yes
-  #      upgrade: dist
-  #  - name: update packages and install java v8
-  #    apt:
-  #      name: openjdk-8-jdk
-  #      state: latest 
+
+  vars:
+    jeknins_url_username: admin
+    jenkins_url_password: admin
+
+  pre_tasks:
+  - name: Update packages
+    apt:
+      update_cache: yes
+      upgrade: dist
+  - name: Install java v8
+    apt:
+      name: openjdk-8-jdk
+      state: latest 
+
   roles: 
     - role: jenkins-setup 
-
-  #tasks: 
-  #  - name: "Ping the hosts"
-  #    ping: ~
-  #  - name: "Make sure Git is available"
-  #    apt: 
-  #      name: "git"
-  #      state: "latest"
-
